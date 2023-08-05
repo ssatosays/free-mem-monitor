@@ -4,7 +4,8 @@ output_csv='output.csv'
 interval=${INTERVAL:-1}
 
 function handle_sigint() {
-    cat ${output_csv}
+    source ./venv/bin/activate
+    python3 generate_graph.py
     exit 1
 }
 
