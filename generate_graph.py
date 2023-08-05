@@ -24,6 +24,20 @@ def main():
 
     plt.figure(figsize=(10, 6))
     plt.plot(df['date'], df['free-mem'])
+    max_index, max_color = df['free-mem'].idxmax(), 'red'
+    min_index, min_color = df['free-mem'].idxmin(), 'blue'
+    plt.text(
+        df['date'][max_index],
+        df['free-mem'][max_index],
+        df['free-mem'][max_index],
+        color=max_color
+    )
+    plt.text(
+        df['date'][min_index],
+        df['free-mem'][min_index],
+        df['free-mem'][min_index],
+        color=min_color
+    )
     plt.title('Free memory transition')
     plt.xlabel('Time')
     plt.ylabel(f'Free memory ({suffix})')
